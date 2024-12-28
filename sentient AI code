@@ -1,0 +1,79 @@
+# sentient_ai
+models/
+self_aware_module.py
+```
+import torch
+import torch.nn as nn
+
+class SelfAwareModule(nn.Module):
+    def __init__(self):
+        super(SelfAwareModule, self).__init__()
+        self.rnn = nn.LSTM(128, 128)
+
+    def forward(self, x):
+        output, hidden = self.rnn(x)
+        return output
+
+Cognitive_Architecture.py
+
+import soar
+
+class CognitiveArchitecture:
+    def __init__(self):
+        self.soar = soar.SOAR()
+
+    def decision_making(self, input):
+        # Implement decision-making logic
+        pass
+```
+Neural_Network.py
+```
+import torch
+import torch.nn as nn
+
+class NeuralNetwork(nn.Module):
+    def __init__(self):
+        super(NeuralNetwork, self).__init__()
+        self.transformer = nn.TransformerEncoderLayer(d_model=128)
+        self.gnn = nn.GraphConv(128, 128)
+        self.rnn = nn.LSTM(128, 128)
+
+    def forward(self, x):
+        # Implement forward pass
+        pass
+```
+
+main.py
+```
+from models.self_aware_module import SelfAwareModule
+from models.cognitive_architecture import CognitiveArchitecture
+from models.neural_network import NeuralNetwork
+import torch
+import torch.optim as optim
+
+# Initialize models
+self_aware = SelfAwareModule()
+cognitive = CognitiveArchitecture()
+neural_network = NeuralNetwork()
+
+# Initialize optimizer and loss function
+optimizer = optim.Adam(neural_network.parameters(), lr=0.001)
+loss_fn = nn.MSELoss()
+
+# Train model
+for epoch in range(100):
+    optimizer.zero_grad()
+    outputs = neural_network(inputs)
+    loss = loss_fn(outputs, targets)
+    loss.backward()
+    optimizer.step()
+```
+
+*requirements.txt*
+```
+torch==2.0.0
+numpy==1.23.5
+scipy==1.9.3
+scikit-learn==1.2.0
+soar-python==1.0.0
+```
